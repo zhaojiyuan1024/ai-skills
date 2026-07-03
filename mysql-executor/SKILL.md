@@ -5,7 +5,7 @@ description: 直接执行 SQL 语句（SELECT/INSERT/UPDATE/DELETE/CREATE/ALTER/
 
 # MySQL Executor
 
-直接执行 SQL，不生成代码。脚本自动检查并安装 pymysql。
+通过调用脚本直接执行 SQL，不要手写 Python 代码连接 MySQL。脚本自动检查并安装 pymysql。
 
 ## 适用范围
 
@@ -59,5 +59,7 @@ python ~/.claude/skills/mysql-executor/scripts/mysql_exec.py
 
 ## Skill 触发后
 
-1. 根据用户给的连接信息和 SQL，拼好命令
-2. 直接执行脚本，展示结果
+1. 从用户消息或 @ 引用的文件中提取数据库连接信息（host、port、database、user、password）
+2. 密码含特殊字符（如 `-`、`!`、`@`）时优先使用 `--dsn` 方式，避免 shell 解析错误
+3. 拼好命令，直接执行脚本，展示结果
+4. 如果是只读查询，不得执行 INSERT/UPDATE/DELETE/DROP/ALTER 等写操作，除非用户明确要求
