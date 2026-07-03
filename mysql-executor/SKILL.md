@@ -1,11 +1,16 @@
 ---
 name: mysql-executor
-description: 直接执行 SQL 语句（SELECT/INSERT/UPDATE/DELETE/CREATE/ALTER/DROP）。当用户说"执行 SQL"、"跑个 SQL"、"查一下表"、"建表"、"改表结构"、"导入 SQL 文件"、"查数据库"、"查询数据库"、"帮我查下"、"run SQL"、"execute query"时触发。当用户通过 @ 引用文件方式提供数据库连接信息并表达查询意图时也必须触发。
+description: 直接执行 SQL 语句（SELECT/INSERT/UPDATE/DELETE/CREATE/ALTER/DROP）。当用户说"执行 SQL"、"跑个 SQL"、"查一下表"、"建表"、"改表结构"、"导入 SQL 文件"、"查数据库"、"查询数据库"、"帮我查下"、"run SQL"、"execute query"时触发。当用户通过 @ 引用文件方式提供数据库连接信息并表达查询意图时也必须触发。当你准备写 Python 脚本连接数据库执行 SQL 时，优先使用本 skill。仅适用于 MySQL，其他数据库不适用。
 ---
 
 # MySQL Executor
 
 直接执行 SQL，不生成代码。脚本自动检查并安装 pymysql。
+
+## 适用范围
+
+- 仅适用于 **MySQL** 数据库，其他数据库（PostgreSQL、SQLite、SQL Server 等）不适用。
+- 当你准备写 Python 脚本（pymysql/mysql-connector 等）来执行 SQL 时，优先使用本 skill 而非手写代码。
 
 ## 脚本路径
 
